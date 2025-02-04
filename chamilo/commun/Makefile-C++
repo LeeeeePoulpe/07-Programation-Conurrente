@@ -12,6 +12,11 @@
 # bin-gcc/mon_executable
 # bin-clang/mon_executable
 
+# Définir en tête de Makefile
+LDFLAGS = -L/opt/homebrew/lib
+LIBS = -lpthread -lcurses -lboost_system -lboost_thread
+
+
 ifeq ($(OPT),n)
 OPTFLAGS=-O0
 else
@@ -23,7 +28,7 @@ DEFINES = -DETUDIANTS
 endif
 
 compilo-gcc = g++ $(OPTFLAGS) -g -std=c++14 -Wall -W -Werror
-compilo-clang = clang++ $(OPTFLAGS) -g -std=c++14 -Weverything -Werror -Wno-zero-as-null-pointer-constant -Wno-c++98-compat -fcaret-diagnostics -Wno-padded -Wno-exit-time-destructors -Wno-global-constructors -Wno-unsafe-buffer-usage
+compilo-clang = clang++ $(OPTFLAGS) -g -std=c++14 -Weverything -Werror -Wno-poison-system-directories -Wno-zero-as-null-pointer-constant -Wno-c++98-compat -fcaret-diagnostics -Wno-padded -Wno-exit-time-destructors -Wno-global-constructors -Wno-unsafe-buffer-usage
 
 executables = $(patsubst %.cpp,%,$(wildcard [a-z]*.cpp))
 
@@ -39,10 +44,10 @@ default: $(executables-gcc)
 
 $(executables-gcc): %: %.o $(objets-gcc)
 	@make --no-print-directory $(subst bin-gcc,bin-clang,$@)
-	$(compilo-gcc) $^ -o $@ -lpthread -lcurses -lboost_thread -lboost_system
+	$(compilo-clang) $(LDFLAGS) $^ -o $@ $(LIBS)
 
 $(executables-clang): %: %.o $(objets-clang)
-	$(compilo-clang) $^ -o $@ -lpthread -lcurses -lboost_thread -lboost_system
+	$(compilo-clang) $(LDFLAGS) $^ -o $@ $(LIBS)
 
 bin-gcc/%.o: %.cpp $(headers)
 	@mkdir -p bin-gcc

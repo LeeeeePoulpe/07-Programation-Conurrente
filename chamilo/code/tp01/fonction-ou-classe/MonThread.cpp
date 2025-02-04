@@ -3,12 +3,12 @@
 
 using namespace std;
 
-//--TODO-- à remplacer --TODO--/
-MonThread::MonThread() {}
-//-----------------------------/
+MonThread::MonThread(const unsigned long numero) {
+    mon_numero = numero;
+}
+
 
 void MonThread::operator()(void)
 {
-//--TODO-- à compléter --TODO--/
-//-----------------------------/
+    cout << mon_numero;
 }

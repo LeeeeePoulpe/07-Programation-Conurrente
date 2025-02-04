@@ -1,18 +1,16 @@
 #ifndef MONTHREAD_HPP_
 #define MONTHREAD_HPP_
+#include <mutex>
 
 // Classe avec opérateur parenthèses défini
 class MonThread
 {
 public :
-  //--TODO-- à remplacer --TODO--/
-  MonThread();
-  //-----------------------------/
+  MonThread(const unsigned long);
   void operator()(void);
 
 private :
-  //--TODO-- à compléter --TODO--/
-  //-----------------------------/
+  unsigned long mon_numero;
 };
 
 #endif // MONTHREAD_HPP_
