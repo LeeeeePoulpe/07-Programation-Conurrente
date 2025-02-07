@@ -7,21 +7,23 @@
 // Classe avec opérateur parenthèses défini
 class Androide
 {
-public :
-  //--TODO-- à remplacer et compléter --TODO--/
-  Androide(Ecran& ecran_);
-  //-----------------------------/
-
-public :
+public:
+  Androide(unsigned long id_,
+           unsigned long latence_,
+           Ecran &ecran_);
   static int const COTE_ESPACE; // l'espace à inspecter est un carré de COTE_ESPACE unités de côté
+  void operator()(void);
 
-private :
+private:
   //--TODO-- à compléter --TODO--/
   //-----------------------------/
-  Ecran& ecran;
-  std::default_random_engine gen;  // générateur aléatoire
+  unsigned long id;
+  unsigned long latence;
 
-  void maj_coord(int& coord);
+  Ecran &ecran;
+  std::default_random_engine gen; // générateur aléatoire
+
+  void maj_coord(int &coord);
   void marche_aleatoire(void);
 };
 
