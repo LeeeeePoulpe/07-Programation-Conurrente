@@ -27,8 +27,8 @@ ifeq ($(ETU),y)
 DEFINES = -DETUDIANTS
 endif
 
-compilo-gcc = g++ $(OPTFLAGS) -g -std=c++14 -Wall -W -Werror
-compilo-clang = clang++ $(OPTFLAGS) -g -std=c++14 -Weverything -Werror -Wno-poison-system-directories -Wno-zero-as-null-pointer-constant -Wno-c++98-compat -fcaret-diagnostics -Wno-padded -Wno-exit-time-destructors -Wno-global-constructors -Wno-unsafe-buffer-usage
+compilo-gcc = g++ $(OPTFLAGS) -g -std=c++14 -Wall -W
+compilo-clang = clang++ $(OPTFLAGS) -g -std=c++14 -Wno-deprecated-declarations -Wno-poison-system-directories -Wno-zero-as-null-pointer-constant -Wno-c++98-compat -fcaret-diagnostics -Wno-padded -Wno-exit-time-destructors -Wno-global-constructors -Wno-unsafe-buffer-usage
 
 executables = $(patsubst %.cpp,%,$(wildcard [a-z]*.cpp))
 
