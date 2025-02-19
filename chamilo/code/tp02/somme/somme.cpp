@@ -50,12 +50,17 @@ int main(int argc, char*argv[])
   // création des threads
   vector<thread> mes_threads;
   //--TODO-- à remplacer --TODO--/
-  UNUSED(nb_threads); UNUSED(nb_iterations); UNUSED(une_sc_par_thread);
+  // UNUSED(nb_threads); UNUSED(nb_iterations); UNUSED(une_sc_par_thread);
+
+  for(unsigned long i = 0; i < nb_threads; i++) {
+    mes_threads.push_back(thread(MonThread(i, ressource, une_sc_par_thread, nb_iterations)));
+  }
+
   //-----------------------------/
 
-  // attente des threads
-  //--TODO-- à compléter --TODO--/
-  //-----------------------------/
+  for(unsigned long i = 0; i < nb_threads; i++) {
+    mes_threads[i].join();
+  }
 
   cout << "À la fin,            total = " << setw(9) << ressource.acces_non_protege() << endl;
 

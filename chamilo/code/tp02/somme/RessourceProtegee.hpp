@@ -1,8 +1,8 @@
 #ifndef RESSOURCE_PROTEGEE_HPP_
 #define RESSOURCE_PROTEGEE_HPP_
 
-//--TODO-- à compléter --TODO--/
-//-----------------------------/
+#include <atomic>
+#include <mutex>
 
 class RessourceProtegee
 {
@@ -16,10 +16,12 @@ public :
   // méthode donnant un accès non protégé à la ressource
   unsigned long acces_non_protege(void);
 
+  // Mutex
+  std::mutex mon_mutex;
+
 private :
   // variables partagées entre les threads
-  //--TODO-- à modifier et compléter --TODO--/
-  unsigned long total;
+  std::atomic<unsigned long> total;
   //-----------------------------/
 };
 
