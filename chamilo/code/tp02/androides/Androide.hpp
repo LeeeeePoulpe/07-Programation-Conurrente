@@ -9,7 +9,7 @@
 class Androide
 {
 public :
-  Androide(SequenceEntiere& seq_, Ecran& ecran_);
+  Androide(SequenceEntiere& seq_, Ecran& ecran_, unsigned long id_);
   void operator()(void);
 
 private :

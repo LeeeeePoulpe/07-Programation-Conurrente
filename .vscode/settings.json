@@ -3,6 +3,8 @@
         "vector": "cpp",
         "iostream": "cpp",
         "mutex": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "chrono": "cpp",
+        "string": "cpp"
     }
 }

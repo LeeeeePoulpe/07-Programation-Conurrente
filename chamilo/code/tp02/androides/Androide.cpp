@@ -15,10 +15,11 @@ using namespace std::chrono;
 
 int const Androide::COTE_ESPACE = 20; // l'espace à inspecter est un carré de 20 unités de côté
 
-Androide::Androide(SequenceEntiere& seq_, Ecran& ecran_) :
+Androide::Androide(SequenceEntiere& seq_, Ecran& ecran_, unsigned long _id) :
   numero(0), // valeur arbitraire en attendant le démarrage du thread
   seq(seq_),
-  ecran(ecran_)
+  ecran(ecran_),
+  gen(_id)
 {}
 
 void Androide::maj_coord(int& coord)
@@ -29,7 +30,7 @@ void Androide::maj_coord(int& coord)
 
 void Androide::marche_aleatoire(void)
 {
-  gen = default_random_engine(static_cast<unsigned long>(syscall(SYS_gettid)));
+  // gen = default_random_engine(static_cast<unsigned long>(syscall(SYS_gettid)));
   uniform_int_distribution<int> dis(5,5+COTE_ESPACE);
   int x = 5 + dis(gen);
   int y = 5 + dis(gen);

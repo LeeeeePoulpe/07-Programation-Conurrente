@@ -27,7 +27,7 @@ int main(int argc, char*argv[])
   // création des threads
   vector<thread> mes_threads;
   for (unsigned long i=0; i < nb_threads; i++)
-    mes_threads.push_back(thread(Androide(seq, ecran)));
+    mes_threads.push_back(thread(Androide(seq, ecran, i)));
 
   // attente des threads
   for (unsigned long i=0; i < nb_threads; i++)
