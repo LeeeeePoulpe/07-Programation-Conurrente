@@ -192,3 +192,5 @@ fabric.properties
 build/
 
 # End of https://www.toptal.com/developers/gitignore/api/c++,cmake,xmake,visualstudiocode,jetbrains
+
+.ds_store
