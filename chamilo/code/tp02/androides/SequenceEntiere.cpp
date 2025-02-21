@@ -18,6 +18,5 @@ unsigned int SequenceEntiere::nouveau_numero(void)
   // ne pas enlever cette temporisation
   this_thread::sleep_for(chrono::milliseconds(100));
   numero++;
-  mon_mutex.unlock();
   return resultat;
 }
