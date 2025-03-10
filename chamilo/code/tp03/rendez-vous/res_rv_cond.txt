@@ -1,0 +1,24 @@
+
+                   Version : Le dernier réveille les autres
+--------------------------------------------------------------------------------
+   Thread 0    |   Thread 1    |   Thread 2    |   Thread 3    |   Thread 4    |
+ 0 demande rv1 |               |               |               |               |
+               | 1 demande rv1 |               |               |               |
+               |               | 2 demande rv1 |               |               |
+               |               |               | 3 demande rv1 |               |
+               |               |               |               | 4 demande rv1 |
+               |               |               |               | 4 sort du rv1 |
+ 0 sort du rv1 |               |               |               |               |
+               | 1 sort du rv1 |               |               |               |
+               |               | 2 sort du rv1 |               |               |
+               |               |               | 3 sort du rv1 |               |
+ 0 demande rv2 |               |               |               |               |
+               | 1 demande rv2 |               |               |               |
+               |               | 2 demande rv2 |               |               |
+               |               |               | 3 demande rv2 |               |
+               |               |               |               | 4 demande rv2 |
+ 0 sort du rv2 |               |               |               |               |
+               |               |               | 3 sort du rv2 |               |
+               |               |               |               | 4 sort du rv2 |
+               | 1 sort du rv2 |               |               |               |
+               |               | 2 sort du rv2 |               |               |
