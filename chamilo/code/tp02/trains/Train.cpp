@@ -22,7 +22,7 @@ void Train::operator()(void)
   this_thread::sleep_for(numero*milliseconds(250));
   positions.sePreparer(numero);
   ///////////////////////////////////////////////////////////////////////////////
-
+  trajet.departAvantArrivee();
   trajet.reserverDepart();
   trajet.reserverArrivee();
 
@@ -37,7 +37,7 @@ void Train::operator()(void)
   positions.arriver(numero);
   ////////////////////////////////////////////////////////////////////////////////
 
-  trajet.libererDepart();
   trajet.libererArrivee();
+  trajet.libererDepart();
 }
 
