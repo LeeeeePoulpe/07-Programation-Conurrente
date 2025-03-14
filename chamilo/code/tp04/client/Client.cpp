@@ -14,9 +14,8 @@ Client::Client(std::string nom, unsigned short n_port) :
 {
   // résolution DNS
   boost::asio::ip::tcp::resolver requeteur(service_es);
-  boost::asio::ip::tcp::resolver::query requete(nom,to_string(n_port));
-  boost::asio::ip::tcp::resolver::iterator iter = requeteur.resolve(requete);
-  boost::asio::ip::tcp::endpoint point_distant=*iter; // on prend la 1ère adresse IP (dans le cas où le DNS en donne plusieurs)
+  auto endpoints = requeteur.resolve(nom, to_string(n_port));
+  boost::asio::ip::tcp::endpoint point_distant = *endpoints.begin(); // on prend la 1ère adresse IP (dans le cas où le DNS en donne plusieurs)
 
   cout<<"Tentative de connexion au serveur "<<point_distant<<"..."<<endl;
   // connexion au serveur

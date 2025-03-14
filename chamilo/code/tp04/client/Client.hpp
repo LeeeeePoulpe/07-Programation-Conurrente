@@ -13,7 +13,7 @@ public :
   /*[[noreturn]]*/ void dialogue_avec_serveur(void);
 
 private :
-  boost::asio::io_service service_es;
+  boost::asio::io_context service_es;
   boost::asio::ip::tcp::socket sock;
 };
 
